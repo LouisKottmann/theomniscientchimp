@@ -1,0 +1,15 @@
+﻿<Application x:Class="TheOmniscientChimp.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             StartupUri="MainWindow.xaml">
+    <Application.Resources>
+        <Style x:Key="labelStyle" TargetType="{x:Type Label}">
+            <Setter Property="FontSize" Value="20" />
+            <Setter Property="BitmapEffect">
+                <Setter.Value>
+                    <OuterGlowBitmapEffect GlowColor="White" GlowSize="7"/>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Application.Resources>
+</Application>
