@@ -182,18 +182,34 @@ namespace TheOmniscientChimp
 
         private Boolean UnpackNewVersion()
         {
-            try
+            if (Path.GetExtension(m_LatestVersionArchivePath) == ".rar")
             {
-                SevenZip.SevenZipExtractor.SetLibraryPath(m_7zLibraryPath);
-                SevenZip.SevenZipExtractor extract = new SevenZip.SevenZipExtractor(m_LatestVersionArchivePath);
-                extract.ExtractArchive(m_TemporaryNewVersionFolder);
+                try
+                {
+                    SevenZip.SevenZipExtractor.SetLibraryPath(m_7zLibraryPath);
+                    SevenZip.SevenZipExtractor extract = new SevenZip.SevenZipExtractor(m_LatestVersionArchivePath);
+                    extract.ExtractArchive(m_TemporaryNewVersionFolder);
 
-                File.Delete(m_LatestVersionArchivePath);
-                return true;
+                    File.Delete(m_LatestVersionArchivePath);
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
-            catch
+            //Handle WiX installers for automatic install users.                
+            else
             {
-                return false;
+                try
+                {
+                    Process.Start(m_LatestVersionArchivePath).WaitForExit();
+                    return true;
+                }
+                catch
+                {
+                    return false;
+                }
             }
         }
 

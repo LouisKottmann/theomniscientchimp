@@ -3,7 +3,7 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:CustomXaml"
         Icon="SC2_Replay_Monkey.ico"
-        Title="MainWindow" Height="400" Width="600" Background="#00005555" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
+        Title="MainWindow" Height="256" Width="456" Background="#00005555" AllowsTransparency="True" WindowStyle="None" WindowStartupLocation="CenterScreen" >
     
     <Window.Resources>
         <Style x:Key="customTextStyle" TargetType="local:OutlinedText">
@@ -22,55 +22,68 @@
                 </Setter.Value>
             </Setter>
         </Style>
+        
+        <Style x:Key="styleBackground">
+            <Setter Property="Control.Background">
+                <Setter.Value>
+                    <ImageBrush ImageSource="SC2_Replay_Monkey.png" Stretch="Fill" />
+                </Setter.Value>
+            </Setter>
+        </Style>
     </Window.Resources>
     
     <Grid Width="Auto">
         <Grid.RowDefinitions>
             <RowDefinition Height="*" />           
         </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
+        <!--
+            <Grid.ColumnDefinitions>
             <ColumnDefinition Width="*" />
             <ColumnDefinition Width="Auto" />
         </Grid.ColumnDefinitions>
-        <Image Name="splashScreenImage" Stretch="Fill" Grid.Column="0" Grid.Row="0" />
-        <Grid Width="200" Grid.Column="1" Grid.Row="0">
+        -->
+        <Image Name="splashScreenImage" Stretch="Fill" Grid.Row="0" />
+        <Grid Width="250" Grid.Row="0" HorizontalAlignment="Right">
+            
             <Grid.RowDefinitions>
                 <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
-                <RowDefinition Height="*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
+                <RowDefinition Height="2*" />
                 <RowDefinition Height="*" />
             </Grid.RowDefinitions>
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelConnected"
-                    Grid.Row="0"                    
+                    Grid.Row="1"                    
                     Text="Connected" />
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelNewVersion"
-                    Grid.Row="1"
+                    Grid.Row="2"
                     Text="New Version" />
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelDownloading"
-                    Grid.Row="2"
+                    Grid.Row="3"
                     Text="Downloading" />
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelUnpack"
-                    Grid.Row="3"
+                    Grid.Row="4"
                     Text="Unpacking" />
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelOverwriting"
-                    Grid.Row="4"
+                    Grid.Row="5"
                     Text="Overwriting" />
             <local:OutlinedText 
                     Style="{StaticResource customTextStyle}"
                     x:Name="labelStartMainApp"
-                    Grid.Row="5"
+                    Grid.Row="6"
                     Text="Start" />
         </Grid>
     </Grid>

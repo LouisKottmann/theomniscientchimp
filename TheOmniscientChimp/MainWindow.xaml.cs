@@ -55,7 +55,7 @@ namespace TheOmniscientChimp
             {
                 Directory.Delete(m_Logic.m_TemporaryNewVersionFolder, true);
             }
-            Thread.Sleep(3000);
+            Thread.Sleep(2000);
         }
 
         private void worker_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
